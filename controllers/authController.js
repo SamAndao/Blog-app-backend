@@ -34,10 +34,10 @@ const handleLogin = asyncHandler(async (req, res) => {
 
   res.cookie("rfshtkn", refreshToken, {
     httpOnly: true,
-    sameSite: "Strict",
+    sameSite: "None",
+    secure: true,
     maxAge: 24 * 60 * 60 * 1000,
   });
-  console.log("cookie done");
   res.json({ accessToken, userId, username });
 });
 
@@ -77,8 +77,8 @@ const registerUser = asyncHandler(async (req, res) => {
 
     res.cookie("rfshtkn", refreshToken, {
       httpOnly: true,
-      secure: true,
       sameSite: "None",
+      secure: true,
       maxAge: 24 * 60 * 60 * 1000,
     });
 
@@ -98,8 +98,8 @@ const logout = (req, res) => {
     return res.status(203).json({ message: "No content" });
   }
   res.clearCookie("rfshtkn", {
-    sameSite: "None",
     httpOnly: true,
+    sameSite: "None",
     secure: true,
   });
   res.json({ message: "User logged out" });
