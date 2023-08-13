@@ -18,7 +18,7 @@ app.use(requestLog);
 app.use(
   cors({
     credentials: true,
-    origin: "https://blogit-pc7h.onrender.com",
+    origin: ["https://blogit-pc7h.onrender.com", "http://localhost:3000"],
   })
 );
 
