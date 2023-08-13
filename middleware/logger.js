@@ -21,7 +21,7 @@ const requestLog = (req, res, next) => {
     req.headers.origin
   } \t ${new Date().toLocaleString()} \n`;
   logEvents(message, "requests.log");
-  console.log(`${req.method} ${req.path}`);
+  // console.log(`${req.method} ${req.path}`);
   next();
 };
 
