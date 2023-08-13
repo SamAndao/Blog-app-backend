@@ -78,9 +78,9 @@ const deletePost = asyncHandler(async (req, res) => {
 });
 
 const getUserPostById = asyncHandler(async (req, res) => {
-  console.log("requested");
+  // console.log("requested");
   const userId = req.params.id;
-  console.log(userId);
+  // console.log(userId);
   const userPosts = await Post.find({ userId }).exec();
   res.json(userPosts);
 });
